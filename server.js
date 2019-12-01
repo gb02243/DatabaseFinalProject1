@@ -120,6 +120,7 @@ router.post('/submit',(req,res) => {
       req.session.name = row.name;
       if(req.session.password == row.password && row.type =='admin'){
         res.end('done');
+        console.log("User "+req.session.username+" logged in.");
       }else{
         // console.log("bad password");
         res.end('password');
