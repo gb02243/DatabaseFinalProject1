@@ -132,7 +132,11 @@ router.post('/submit',(req,res) => {
 });
 
 router.get('/admin',(req,res) => {
-  res.render("admin",{user:req.session.name});
+  if(req.session.name){
+    res.render("admin",{user:req.session.name});
+  }else{
+    res.redirect("/");
+  }
 });
 
 router.get('/logout',(req,res) => {
