@@ -68,14 +68,15 @@ router.get('/stock',(req,res) => {
   });
 });
 
-router.get('/order',(req,res) => {
+router.post('/order',(req,res) => {
   req.session.pid = req.body.productID;
   req.session.quantity = req.body.quantity;
-  let query = 'UPDATE Stock SET quantity_ordered = quantity_ordered+'+req.session.quantity+'WHERE product_id = '+req.session.productID+';';
+  let query = 'UPDATE Stock SET quantity_ordered = quantity_ordered+'+req.session.quantity+' WHERE product_id = '+req.session.pid+';';
   database.query(query, (err, rows, cols) => {
     if(err) throw err;
     res.render('stock', {rows:rows});
   });
+  res.redirect('/stock');
 });
 
 router.get('/products',(req,res) => {
