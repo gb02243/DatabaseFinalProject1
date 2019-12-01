@@ -61,7 +61,7 @@ router.get('/',(req,res) => {
 });
 
 router.get('/products',(req,res) => {
-  let query = 'SELECT p.id AS id, p.name AS pname, p.brand AS pbrand, p.model AS pmodel, d.name AS dname, s.upc AS upc, s.buy_price AS buy, s.rent_price AS rent FROM products p, stock s, departments d WHERE p.id = s.product_id AND s.department_id = d.id;'
+  let query = 'SELECT p.id AS id, p.name AS pname, p.brand AS pbrand, p.model AS pmodel, d.name AS dname, s.upc AS upc, s.buy_price AS buy, s.rent_price AS rent FROM Products p, Stock s, Departments d WHERE p.id = s.product_id AND s.department_id = d.id;'
   database.query(query, (err, rows, cols) => {
     if(err) throw err;
     res.render('products', {rows:rows});
@@ -69,7 +69,7 @@ router.get('/products',(req,res) => {
 });
 
 router.get('/cameras',(req,res) => {
-  let query = 'SELECT p.id AS id, p.name AS pname, p.brand AS pbrand, p.model AS pmodel, d.name AS dname, s.upc AS upc, s.buy_price AS buy, s.rent_price AS rent FROM products p, stock s, departments d WHERE p.id = s.product_id AND s.department_id = d.id AND d.id = 1;'
+  let query = 'SELECT p.id AS id, p.name AS pname, p.brand AS pbrand, p.model AS pmodel, d.name AS dname, s.upc AS upc, s.buy_price AS buy, s.rent_price AS rent FROM Products p, Stock s, Departments d WHERE p.id = s.product_id AND s.department_id = d.id AND d.id = 1;'
   database.query(query, (err, rows, cols) => {
     if(err) throw err;
     res.render('products', {rows:rows});
@@ -77,7 +77,7 @@ router.get('/cameras',(req,res) => {
 });
 
 router.get('/televisions',(req,res) => {
-  let query = 'SELECT p.id AS id, p.name AS pname, p.brand AS pbrand, p.model AS pmodel, d.name AS dname, s.upc AS upc, s.buy_price AS buy, s.rent_price AS rent FROM products p, stock s, departments d WHERE p.id = s.product_id AND s.department_id = d.id AND d.id = 2;'
+  let query = 'SELECT p.id AS id, p.name AS pname, p.brand AS pbrand, p.model AS pmodel, d.name AS dname, s.upc AS upc, s.buy_price AS buy, s.rent_price AS rent FROM Products p, Stock s, Departments d WHERE p.id = s.product_id AND s.department_id = d.id AND d.id = 2;'
   database.query(query, (err, rows, cols) => {
     if(err) throw err;
     res.render('products', {rows:rows});
@@ -85,7 +85,7 @@ router.get('/televisions',(req,res) => {
 });
 
 router.get('/audio',(req,res) => {
-  let query = 'SELECT p.id AS id, p.name AS pname, p.brand AS pbrand, p.model AS pmodel, d.name AS dname, s.upc AS upc, s.buy_price AS buy, s.rent_price AS rent FROM products p, stock s, departments d WHERE p.id = s.product_id AND s.department_id = d.id AND d.id = 3;'
+  let query = 'SELECT p.id AS id, p.name AS pname, p.brand AS pbrand, p.model AS pmodel, d.name AS dname, s.upc AS upc, s.buy_price AS buy, s.rent_price AS rent FROM Products p, Stock s, Departments d WHERE p.id = s.product_id AND s.department_id = d.id AND d.id = 3;'
   database.query(query, (err, rows, cols) => {
     if(err) throw err;
     res.render('products', {rows:rows});
@@ -93,7 +93,7 @@ router.get('/audio',(req,res) => {
 });
 
 router.get('/other',(req,res) => {
-  let query = 'SELECT p.id AS id, p.name AS pname, p.brand AS pbrand, p.model AS pmodel, d.name AS dname, s.upc AS upc, s.buy_price AS buy, s.rent_price AS rent FROM products p, stock s, departments d WHERE p.id = s.product_id AND s.department_id = d.id AND d.id = 4;'
+  let query = 'SELECT p.id AS id, p.name AS pname, p.brand AS pbrand, p.model AS pmodel, d.name AS dname, s.upc AS upc, s.buy_price AS buy, s.rent_price AS rent FROM Products p, Stock s, Departments d WHERE p.id = s.product_id AND s.department_id = d.id AND d.id = 4;'
   database.query(query, (err, rows, cols) => {
     if(err) throw err;
     res.render('products', {rows:rows});
@@ -111,7 +111,7 @@ router.get('/stores',(req,res) => {
 router.post('/submit',(req,res) => {
   req.session.username = req.body.username;
   req.session.password = req.body.pass;
-  let query = 'SELECT name, username, password, type FROM users WHERE username LIKE (\'%'+req.session.username+'\');'
+  let query = 'SELECT name, username, password, type FROM Users WHERE username LIKE (\'%'+req.session.username+'\');'
   // console.log(query);
   database.query(query, (err, results, cols) => {
     if(err) throw err;
