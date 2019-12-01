@@ -12,18 +12,32 @@
                   <th class="head-item mbr-fonts-style display-4">#</th>
                   <th class="head-item mbr-fonts-style display-4">Product Name</th>
                   <th class="head-item mbr-fonts-style display-4">Brand</th>
+                  <th class="head-item mbr-fonts-style display-4">Model</th>
+                  <th class="head-item mbr-fonts-style display-4">Dept</th>
                   <th class="head-item mbr-fonts-style display-4">UPC</th>
-                  <th class="head-item mbr-fonts-style display-4">Purchase Price</th>
+                  <th class="head-item mbr-fonts-style display-4">Price</th>
+                  <th class="head-item mbr-fonts-style display-4">Rent Price</th>
                 </tr>
               </thead>
               <tbody>
+                {{#each rows}}
                 <tr>
-                  <td class="body-item mbr-fonts-style display-7">1</td>
-                  <td class="body-item mbr-fonts-style display-7">PRODUCT NAME</td>
-                  <td class="body-item mbr-fonts-style display-7">BRAND</td>
-                  <td class="body-item mbr-fonts-style display-7">UPC NUMBER HERE</td>
-                  <td class="body-item mbr-fonts-style display-7">$647.00<br></td>
+                  <td>{{this.id}}</td>
+                  <td>{{this.pname}}</td>
+                  <td>{{this.pbrand}}</td>
+                  <td>{{this.pmodel}}</td>
+                  <td>{{this.dname}}</td>
+                  <td>{{this.upc}}</td>
+                  <td>${{this.buy}}.00</td>
+                  <td>
+                    {{#if this.rent}}
+                      ${{this.rent}}.00/day
+                    {{else}}
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{/if}}
+                  </td>
                 </tr>
+                {{/each}}
               </tbody>
             </table>
           </div>

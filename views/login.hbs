@@ -1,4 +1,4 @@
-<html lang="en">
+<html>
 <head>
   <meta charset="utf-8">
   <title>Login - Online Store</title>
@@ -10,16 +10,16 @@
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="preload" as="style" href="/assets/mobirise/css/mbr-additional.css">
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
   {{>navbar}}
+
   <section class="cid-rJfDeLD6Rq" id="form3-g">
     <div class="container-fluid">
       <div class="row justify-content-center">
         <div class="form-1 col-md-8 col-lg-5">
-          <!---Formbuilder Form--->
-          <form action="/submit" method="POST" class="mbr-form form-with-styler" data-form-title="Login">
-            <!-- <input type="hidden" name="email" data-form-email="true" value="F9KdXB7A4ecO9BseWsQTGA8iXF/sP0ABbkOXsvQhDQ0rhvyPcgVIbbZMaBbTSsbEiCz6HpWfCjxKvXmKNoAXtKNMlKIOsMBd7mqLrzQ58+9iaXNdUMRzZ61Pz+S0O7Az"> -->
+          <form action="#submit" method="POST" class="mbr-form form-with-styler" data-form-title="Login">
             <div class="form-row input-main">
             </div>
             <div class="dragArea form-row input-main">
@@ -36,20 +36,21 @@
                 <center>
                   <label for="lastname-form3-g" class="form-control-label mbr-fonts-style display-7">Password<br></label>
                 </center>
-                <input type="text" name="password" data-form-field="Password" class="form-control display-7" required="required" id="password">
+                <input type="password" name="password" data-form-field="Password" class="form-control display-7" required="required" id="password">
               </div>
               <div class="input-group-btn col-md-12">
                 <center>
-                  <button type="submit" class="btn btn-form btn-secondary display-4">Log In</button>
+                  <button type="submit" class="btn btn-form btn-secondary display-4" id="submit">Log In</button>
                 </center>
               </div>
             </div>
           </form>
-          <!---Formbuilder Form--->
         </div>
       </div>
     </div>
   </section>
+
+  <script src="/assets/js/login.js"></script>
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/popper/popper.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
