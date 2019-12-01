@@ -74,7 +74,7 @@ router.post('/order',(req,res) => {
   let query = 'UPDATE Stock SET quantity_ordered = quantity_ordered+'+req.session.quantity+' WHERE product_id = '+req.session.pid+';';
   database.query(query, (err, rows, cols) => {
     if(err) throw err;
-    res.render('stock', {rows:rows});
+    // res.render('stock', {rows:rows});
   });
   res.redirect('/stock');
 });
