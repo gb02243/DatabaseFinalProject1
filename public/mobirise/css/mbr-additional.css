@@ -1021,7 +1021,8 @@ a.text-black:focus {
 }
 a,
 a:hover {
-  color: #a38dfd;
+  /* color: #a38dfd; */
+  color: #000000;
 }
 .mbr-plan-header.bg-primary .mbr-plan-subtitle,
 .mbr-plan-header.bg-primary .mbr-plan-price-desc {

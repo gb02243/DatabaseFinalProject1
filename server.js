@@ -158,5 +158,5 @@ router.get('/login',(req,res) => {
 app.use('/', router);
 
 app.listen(process.env.PORT || 8000,() => {
-  console.log(`App Started on PORT ${process.env.PORT || 8000}`);
+  console.log(`App Started on port ${process.env.PORT || 8000}`);
 });
