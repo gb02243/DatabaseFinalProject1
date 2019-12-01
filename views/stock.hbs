@@ -13,6 +13,26 @@
 </head>
 <body>
   {{>navbar}}
+  <section class="features5 popup-btn-cards cid-rJfCoFRV5C" id="features5-c">
+    <div class="container-fluid">
+      <h2 class="mbr-section-title align-center mbr-fonts-style display-2">Stock</h2>
+      <div class="underline align-center">
+        <div class="line"></div>
+      </div>
+      <h3 class="mbr-section-subtitle display-5 align-center mbr-fonts-style mbr-light pt-1 pb-1 faded">Enter Product ID and Amount to Order</h3>
+      <form action="/order" method="post">
+      <div class="form-group col-lg-3 mx-auto">
+        <input type="text" class="form-control" name="productID" aria-describedby="productidHelp" placeholder="Product ID"required>
+      </div>
+      <div class="form-group col-lg-3 mx-auto">
+        <input type="text" class="form-control" name="quantity" aria-describedby="quantityHelp" placeholder="Quantity"required>
+      </div>
+      <center>
+        <button type="submit" class="btn btn-info">Submit</button>
+      </center>
+    </form>
+    </div>
+  </section>
   {{>stockdisplay}}
   {{>logoutfooter}}
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
