@@ -11,12 +11,9 @@
                 <tr class="table-heads">
                   <th class="head-item mbr-fonts-style display-4">#</th>
                   <th class="head-item mbr-fonts-style display-4">Product Name</th>
-                  <th class="head-item mbr-fonts-style display-4">Brand</th>
-                  <th class="head-item mbr-fonts-style display-4">Model</th>
-                  <th class="head-item mbr-fonts-style display-4">Dept</th>
-                  <th class="head-item mbr-fonts-style display-4">UPC</th>
-                  <th class="head-item mbr-fonts-style display-4">Price</th>
-                  <th class="head-item mbr-fonts-style display-4">Rent Price</th>
+                  <th class="head-item mbr-fonts-style display-4">In Stock</th>
+                  <th class="head-item mbr-fonts-style display-4">Rented</th>
+                  <th class="head-item mbr-fonts-style display-4">Ordered</th>
                 </tr>
               </thead>
               <tbody>
@@ -24,18 +21,9 @@
                 <tr>
                   <td>{{this.id}}</td>
                   <td>{{this.pname}}</td>
-                  <td>{{this.pbrand}}</td>
-                  <td>{{this.pmodel}}</td>
-                  <td>{{this.dname}}</td>
-                  <td>{{this.upc}}</td>
-                  <td>${{this.buy}}.00</td>
-                  <td>
-                    {{#if this.rent}}
-                      ${{this.rent}}.00/day
-                    {{else}}
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {{/if}}
-                  </td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{this.qin}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{this.qrented}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{this.qordered}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 </tr>
                 {{/each}}
               </tbody>
