@@ -88,7 +88,7 @@ router.post('/order',(req,res) => {
 
 router.get('/customers',(req,res) => {
   if(req.session.name){
-    let query = 'SELECT * FROM customers;';
+    let query = 'SELECT * FROM Customers;';
     database.query(query, (err, rows, cols) => {
       if(err) throw err;
       res.render('customers', {rows:rows});
