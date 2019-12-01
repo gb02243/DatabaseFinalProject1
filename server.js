@@ -61,29 +61,41 @@ router.get('/',(req,res) => {
 });
 
 router.get('/stock',(req,res) => {
-  let query = 'SELECT p.id AS id, p.name AS pname, s.quantity_in AS qin, s.quantity_rented AS qrented, s.quantity_ordered AS qordered FROM Products p, Stock s WHERE p.id = s.product_id;';
-  database.query(query, (err, rows, cols) => {
-    if(err) throw err;
-    res.render('stock', {rows:rows});
-  });
+  if(req.session.name){
+    let query = 'SELECT p.id AS id, p.name AS pname, s.quantity_in AS qin, s.quantity_rented AS qrented, s.quantity_ordered AS qordered FROM Products p, Stock s WHERE p.id = s.product_id;';
+    database.query(query, (err, rows, cols) => {
+      if(err) throw err;
+      res.render('stock', {rows:rows});
+    });
+  }else{
+    res.redirect('/login');
+  }
 });
 
 router.post('/order',(req,res) => {
-  req.session.pid = req.body.productID;
-  req.session.quantity = req.body.quantity;
-  let query = 'UPDATE Stock SET quantity_ordered = quantity_ordered+'+req.session.quantity+' WHERE product_id = '+req.session.pid+';';
-  database.query(query, (err, rows, cols) => {
-    if(err) throw err;
-  });
-  res.redirect('/stock');
+  if(req.session.name){
+    req.session.pid = req.body.productID;
+    req.session.quantity = req.body.quantity;
+    let query = 'UPDATE Stock SET quantity_ordered = quantity_ordered+'+req.session.quantity+' WHERE product_id = '+req.session.pid+';';
+    database.query(query, (err, rows, cols) => {
+      if(err) throw err;
+    });
+    res.redirect('/stock');
+  }else{
+    res.redirect('/login');
+  }
 });
 
 router.get('/customers',(req,res) => {
-  let query = 'SELECT * FROM customers;';
-  database.query(query, (err, rows, cols) => {
-    if(err) throw err;
-    res.render('customers', {rows:rows});
-  });
+  if(req.session.name){
+    let query = 'SELECT * FROM customers;';
+    database.query(query, (err, rows, cols) => {
+      if(err) throw err;
+      res.render('customers', {rows:rows});
+    });
+  }else{
+    res.redirect('/login');
+  }
 });
 
 router.get('/products',(req,res) => {
