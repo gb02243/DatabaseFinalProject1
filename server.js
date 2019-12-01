@@ -135,7 +135,7 @@ router.get('/admin',(req,res) => {
   if(req.session.name){
     res.render("admin",{user:req.session.name});
   }else{
-    res.redirect("/");
+    res.redirect("/login");
   }
 });
 
