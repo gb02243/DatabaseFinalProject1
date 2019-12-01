@@ -1,0 +1,50 @@
+<section class="table1 section-table cid-rJfBbhIXcd" id="table1-9">
+  <div class="container-fluid">
+    <div class="media-container-row align-center">
+      <div class="col-12 col-md-12">
+        <div class="table-wrapper pt-5" style="width: 88%;">
+          <div class="container-fluid">
+          </div>
+          <div class="container-fluid scroll">
+            <table class="table table-striped" cellspacing="0">
+              <thead>
+                <tr class="table-heads">
+                  <th class="head-item mbr-fonts-style display-4">#</th>
+                  <th class="head-item mbr-fonts-style display-4">Product Name</th>
+                  <th class="head-item mbr-fonts-style display-4">Brand</th>
+                  <th class="head-item mbr-fonts-style display-4">Model</th>
+                  <th class="head-item mbr-fonts-style display-4">Dept</th>
+                  <th class="head-item mbr-fonts-style display-4">UPC</th>
+                  <th class="head-item mbr-fonts-style display-4">Price</th>
+                  <th class="head-item mbr-fonts-style display-4">Rent Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each rows}}
+                <tr>
+                  <td>{{this.id}}</td>
+                  <td>{{this.pname}}</td>
+                  <td>{{this.pbrand}}</td>
+                  <td>{{this.pmodel}}</td>
+                  <td>{{this.dname}}</td>
+                  <td>{{this.upc}}</td>
+                  <td>${{this.buy}}.00</td>
+                  <td>
+                    {{#if this.rent}}
+                      ${{this.rent}}.00/day
+                    {{else}}
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{/if}}
+                  </td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+          <div class="container-fluid table-info-container">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
