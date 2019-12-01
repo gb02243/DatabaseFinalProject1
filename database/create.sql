@@ -81,7 +81,7 @@ CREATE TABLE Users (
   type varchar(20) NOT NULL DEFAULT 'user',
   unique(username),
   PRIMARY KEY (id)
-);
+); 
 
 ALTER TABLE Supply_Orders ADD CONSTRAINT FOREIGN KEY (supplier_id) REFERENCES Suppliers(id);
 ALTER TABLE Supply_Orders ADD CONSTRAINT FOREIGN KEY (product_id) REFERENCES Products(id);
