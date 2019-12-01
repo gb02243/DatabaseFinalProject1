@@ -78,6 +78,14 @@ router.post('/order',(req,res) => {
   res.redirect('/stock');
 });
 
+router.get('/customers',(req,res) => {
+  let query = 'SELECT * FROM customers;';
+  database.query(query, (err, rows, cols) => {
+    if(err) throw err;
+    res.render('customers', {rows:rows});
+  });
+});
+
 router.get('/products',(req,res) => {
   let query = 'SELECT p.id AS id, p.name AS pname, p.brand AS pbrand, p.model AS pmodel, d.name AS dname, s.upc AS upc, s.buy_price AS buy, s.rent_price AS rent FROM Products p, Stock s, Departments d WHERE p.id = s.product_id AND s.department_id = d.id;';
   database.query(query, (err, rows, cols) => {
