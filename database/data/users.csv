@@ -1,0 +1,5 @@
+﻿id,name,username,password,type
+1,Admin,admin,password,admin
+2,default,default,0,user
+3,Griffin,gbryant,password,admin
+4,Serggio,smontero,password,admin
