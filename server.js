@@ -62,7 +62,7 @@ router.get('/',(req,res) => {
 
 router.get('/stock',(req,res) => {
   if(req.session.name){
-    let query = 'SELECT p.id AS id, p.name AS pname, s.quantity_in AS qin, s.quantity_rented AS qrented, s.quantity_ordered AS qordered FROM Products p, Stock s WHERE p.id = s.product_id;';
+    let query = 'SELECT p.id AS id, p.name AS pname, sp.name AS sname, s.quantity_in AS qin, s.quantity_rented AS qrented, s.quantity_ordered AS qordered FROM Products p, Stock s, Suppliers sp WHERE p.id = s.product_id AND p.supplier_id = sp.id;';
     database.query(query, (err, rows, cols) => {
       if(err) throw err;
       res.render('stock', {rows:rows});
