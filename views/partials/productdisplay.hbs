@@ -22,16 +22,16 @@
               <tbody>
                 {{#each rows}}
                 <tr>
-                  <td>{{this.id}}</td>
-                  <td>{{this.pname}}</td>
-                  <td>{{this.pbrand}}</td>
-                  <td>{{this.pmodel}}</td>
-                  <td>{{this.dname}}</td>
-                  <td>{{this.upc}}</td>
-                  <td>${{this.buy}}.00</td>
+                  <td><center>{{this.id}}</center></td>
+                  <td><center>{{this.pname}}</center></td>
+                  <td><center>{{this.pbrand}}</center></td>
+                  <td><center>{{this.pmodel}}</center></td>
+                  <td><center>{{this.dname}}</center></td>
+                  <td><center>{{this.upc}}</center></td>
+                  <td><center>${{this.buy}}.00</center></td>
                   <td>
                     {{#if this.rent}}
-                      ${{this.rent}}.00/day
+                      <center>${{this.rent}}.00/day</center>
                     {{else}}
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     {{/if}}
