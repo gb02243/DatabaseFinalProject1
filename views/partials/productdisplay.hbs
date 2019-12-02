@@ -28,12 +28,19 @@
                   <td><center>{{this.pmodel}}</center></td>
                   <td><center>{{this.dname}}</center></td>
                   <td><center>{{this.upc}}</center></td>
-                  <td><center>${{this.buy}}.00</center></td>
+                  <td><center>${{this.buy}}.00</center><br>
+                    <center>
+                      <button type="submit" class="btn-sm btn-secondary">Buy</button>
+                    </center>
+                  </td>
                   <td>
                     {{#if this.rent}}
-                      <center>${{this.rent}}.00/day</center>
+                    <center>${{this.rent}}.00/day</center><br>
+                    <center>
+                      <button type="submit" class="btn-sm btn-info">Rent</button>
+                    </center>
                     {{else}}
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     {{/if}}
                   </td>
                 </tr>
