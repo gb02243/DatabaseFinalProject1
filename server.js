@@ -86,6 +86,29 @@ router.post('/order',(req,res) => {
   }
 });
 
+router.post('/buy',(req,res) => {
+  req.session.pid = req.body.buypid;
+  let query = 'UPDATE Stock SET quantity_in = quantity_in-1 WHERE product_id = '+req.session.pid+';';
+  database.query(query, (err, results, cols) => {
+    if(err) throw err;
+    // res.end('purchased');
+  });
+  console.log('Customer purchased product with id: '+req.session.pid);
+  // res.redirect('/products');
+  res.redirect('/purchased');
+});
+
+router.post('/rent',(req,res) => {
+  req.session.pid = req.body.rentpid;
+  let query = 'UPDATE Stock SET quantity_rented = quantity_rented+1 WHERE product_id = '+req.session.pid+';';
+  database.query(query, (err, results, cols) => {
+    if(err) throw err;
+    // res.end('purchased');
+  });
+  console.log('Customer rented product with id: '+req.session.pid);
+  res.redirect('/rented');
+});
+
 router.get('/customers',(req,res) => {
   if(req.session.name){
     let query = 'SELECT * FROM Customers;';
@@ -156,6 +179,14 @@ router.get('/departments',(req,res) => {
 
 router.get('/stores',(req,res) => {
   res.render('stores');
+});
+
+router.get('/purchased',(req,res) => {
+  res.render('purchased');
+});
+
+router.get('/rented',(req,res) => {
+  res.render('rented');
 });
 
 router.post('/submit',(req,res) => {

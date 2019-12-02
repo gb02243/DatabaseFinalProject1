@@ -30,14 +30,20 @@
                   <td><center>{{this.upc}}</center></td>
                   <td><center>${{this.buy}}.00</center><br>
                     <center>
-                      <a href="/buy"><button name="buy{{this.id}}" type="submit" class="btn-sm btn-secondary">Buy</button></a>
+                      <form action="/buy" method="POST" class="mbr-form form-with-styler" data-form-title="Buy">
+                        <input type="hidden" name="buypid" value="{{this.id}}">
+                        <button type="buy" class="btn-sm btn-secondary">Buy</button>
+                      </form>
                     </center>
                   </td>
                   <td>
                     {{#if this.rent}}
                     <center>${{this.rent}}.00/day</center><br>
                     <center>
-                      <a href="/rent"><button name="rent{{this.id}}" type="submit" class="btn-sm btn-info">Rent</button></a>
+                      <form action="/rent" method="POST" class="mbr-form form-with-styler" data-form-title="Rent">
+                        <input type="hidden" name="rentpid" value="{{this.id}}">
+                        <button type="buy" class="btn-sm btn-info">Rent</button>
+                      </form>
                     </center>
                     {{else}}
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
