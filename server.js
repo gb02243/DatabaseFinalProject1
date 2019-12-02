@@ -189,6 +189,10 @@ router.get('/rented',(req,res) => {
   res.render('rented');
 });
 
+router.get('/prices',(req,res) => {
+  res.render('prices');
+});
+
 router.post('/submit',(req,res) => {
   req.session.username = req.body.username;
   req.session.password = req.body.pass;
