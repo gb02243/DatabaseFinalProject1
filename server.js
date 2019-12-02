@@ -190,7 +190,36 @@ router.get('/rented',(req,res) => {
 });
 
 router.get('/prices',(req,res) => {
-  res.render('prices');
+  if(req.session.name){
+    let query = 'SELECT p.id AS id, p.name AS pname, s.buy_price AS buy, s.rent_price AS rent FROM Products p, Stock s, Departments d WHERE p.id = s.product_id AND s.department_id = d.id;';
+    database.query(query, (err, rows, cols) => {
+      if(err) throw err;
+      res.render('prices', {rows:rows});
+    });
+
+  }else{
+    res.redirect('/prices');
+  }
+});
+
+router.post('/pricechange',(req,res) => {
+  if(req.session.name){
+    req.session.pid = req.body.productID;
+    req.session.purchasePrice = req.body.purchasePrice;
+    req.session.rentPrice = req.body.rentPrice;
+    let query = 'UPDATE Stock SET buy_price = '+req.session.purchasePrice+' WHERE product_id = '+req.session.pid+';';
+    database.query(query, (err, rows, cols) => {
+      if(err) throw err;
+    });
+
+    let query2 = 'UPDATE Stock SET rent_price = '+req.session.rentPrice+' WHERE product_id = '+req.session.pid+';';
+    database.query(query2, (err, rows, cols) => {
+      if(err) throw err;
+    });
+    res.redirect('/prices');
+  }else{
+    res.redirect('/login');
+  }
 });
 
 router.post('/submit',(req,res) => {
