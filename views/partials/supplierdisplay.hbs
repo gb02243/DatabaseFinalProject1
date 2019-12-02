@@ -1,0 +1,32 @@
+<section class="table1 section-table cid-rJfBbhIXcd mbr-fullscreen" id="table1-9">
+  <div class="container-fluid">
+    <div class="media-container-row align-center">
+      <div class="col-12 col-md-12">
+        <div class="table-wrapper" style="width: 88%;">
+          <div class="container-fluid">
+          </div>
+          <div class="container-fluid scroll">
+            <table class="table table-striped" cellspacing="0">
+              <thead>
+                <tr class="table-heads">
+                  <th class="head-item mbr-fonts-style display-4">Supplier ID</th>
+                  <th class="head-item mbr-fonts-style display-4">Supplier Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each rows}}
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{this.id}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                  <td>{{this.name}}</td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+          <div class="container-fluid table-info-container">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
